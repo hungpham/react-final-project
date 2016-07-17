@@ -1,22 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router'
 
-import NavLink from './NavLink';
 import Footer from './Footer';
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 
-const App = () => (
+const Active = () => (
   <div className="app">
-    <h1>Todo list</h1>
-    
-    <AddTodo />
+    <h1>Todo Active</h1>
+
     <VisibleTodoList />
-    <Footer />
-
-
-
   </div>
 );
 
-export default App;
+export default Active;

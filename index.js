@@ -1,15 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-
 
 import {
   LOCAL_STATE_KEY
 } from './modules/constant';
-
 import todoApp from './modules/reducers';
-import App from './components/App';
+import routes from './modules/routes';
 
 let store = createStore(todoApp);
 
@@ -31,7 +30,7 @@ store.dispatch = function dispatchAndLog(action) {
 
 render(
   <Provider store={store}>
-    <App />
+    <Router routes={routes}  history={browserHistory}/>
   </Provider>,
   document.getElementById('root')
 );
