@@ -3,6 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
+
+import {
+  LOCAL_STATE_KEY
+} from './modules/constant';
+
 import todoApp from './modules/reducers';
 import App from './components/App';
 
@@ -19,6 +24,7 @@ store.dispatch = function dispatchAndLog(action) {
   let result = next(action);
   console.log('next state:');
   console.log(store.getState());
+  localStorage.setItem(LOCAL_STATE_KEY, JSON.stringify(store.getState()));
   console.groupEnd();
   return result;
 }

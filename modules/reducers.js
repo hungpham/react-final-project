@@ -4,9 +4,18 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   SET_VISIBILITY_FILTER,
-  SHOW_ALL
+  SHOW_ALL,
+  LOCAL_STATE_KEY
 } from './constant';
 
+let initTodos = [];
+let initVisibilityFilter = SHOW_ALL;
+let initState = localStorage.getItem(LOCAL_STATE_KEY);
+if(initState) {
+    initState = JSON.parse(initState);
+    if (initState.todos) initTodos = initState.todos;
+    if (initState.visibilityFilter) initVisibilityFilter = initState.visibilityFilter;
+}
 
 const todo = (state, action) => {
   switch (action.type) {
@@ -30,7 +39,7 @@ const todo = (state, action) => {
   }
 };
 
-const todos = (state = [], action) => {
+const todos = (state = initTodos, action) => {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -48,7 +57,7 @@ const todos = (state = [], action) => {
 
 export default todos;
 
-const visibilityFilter = (state = SHOW_ALL, action) => {
+const visibilityFilter = (state = initVisibilityFilter, action) => {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
       return action.filter;
