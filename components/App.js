@@ -8,7 +8,7 @@ const App = () => (
   <div className="app">
     <h1>Todo list</h1>
     <AddTodo />
-      <VisibleTodoList />
+    <VisibleTodoList />
     <Footer />
   </div>
 );
