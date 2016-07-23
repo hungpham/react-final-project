@@ -8,11 +8,11 @@ import {
 } from '../modules/constant';
 
 const FilterList = () => (
-  <div className="filter-list nav nav-pills">
+  <ul className="unorder-list">
     <Filter filter={SHOW_ALL}>All</Filter>
     <Filter filter={SHOW_ACTIVE}>Active</Filter>
     <Filter filter={SHOW_COMPLETED}>Completed</Filter>
-  </div>
+  </ul>
 );
 
 export default FilterList;

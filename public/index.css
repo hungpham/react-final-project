@@ -22,6 +22,10 @@ body {
   padding-right: 10px;
 }
 
+.unorder-list li.active, .unorder-list li.active a {
+  color: green;
+}
+
 .is-completed  {
   text-decoration: line-through;
   color: gray;
