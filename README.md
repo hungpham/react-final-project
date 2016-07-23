@@ -6,7 +6,7 @@ screenshot:
 ![todolist wireframe](screenshot.png "todolist wireframe")
 
 ## step 1: redux
-using react + redux to build a todo list application. 
+using react + redux to build a todo list application.
 
 required technologies:
   - react.js
@@ -22,7 +22,7 @@ required technologies:
   - react router
   - webpack
   - es6/es2015
-  
+
 the user can:
 - add new todo:
   input a new content, click the 'Add' button to insert a todo
@@ -70,12 +70,12 @@ the user can:
 each trainee will work on different branches
 and push them to this repo (not before the deadline),
 using the following pattern: [your-name/[step-name],
-  - loc-phan/step-1
-  - loc-phan/step-2-1
-  - loc-phan/step-2-2
-  - loc-phan/step-2-3
-  - loc-phan/step-2-4
-  - loc-phan/step-3
+  - hung-pham/step-1
+  - hung-pham/step-2-1
+  - hung-pham/step-2-2
+  - hung-pham/step-2-3
+  - hung-pham/step-2-4
+  - hung-pham/step-3
 
 | Step | Score (%) |
 |------|-----------|
