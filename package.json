@@ -4,7 +4,7 @@
   "description": "React final project for Course ReactJS: From novice to ninja ",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base public"
+    "start": "webpack-dev-server --inline --content-base public --history-api-fallback"
   },
   "author": "",
   "license": "ISC",

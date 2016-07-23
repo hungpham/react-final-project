@@ -23,7 +23,6 @@ TodoList.propTypes = {
 };
 
 const getVisibleTodos = (todos, filter) => {
-  console.log(filter);
   switch (filter) {
     case SHOW_ALL:
       return todos;
