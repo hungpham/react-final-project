@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-import FilterLink from '../containers/FilterLink';
+import NavLink from './NavLink';
+import {
+  SHOW_ALL,
+  SHOW_COMPLETED,
+  SHOW_ACTIVE
+} from '../modules/constant';
 
-const Footer = () => (
-  <ul role="nav" className="unorder-list">
-    <li><NavLink to="/all">All</NavLink></li>
-    <li><NavLink to="/active" >Active</NavLink></li>
-    <li><NavLink to="/completed" >completed</NavLink></li>
-  </ul>
+const Filter = ({ filter, children }) => (
+  <NavLink to={filter === SHOW_ALL ? '' : filter}>
+    {children}
+  </NavLink>
 );
 
-export default Footer;
+Filter.propTypes = {
+  filter: PropTypes.oneOf([SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE]).isRequired,
+  children: PropTypes.node.isRequired
+};
+
+export default Filter;

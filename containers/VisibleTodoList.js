@@ -1,3 +1,4 @@
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import {
@@ -7,9 +8,22 @@ import {
 } from '../modules/constant';
 
 import { toggleTodo } from '../modules/actions';
-import TodoList from '../components/TodoList';
+import Todo from '../components/Todo';
+
+const TodoList = ({ todos, ...rest }) => (
+  <ol className="order-list">
+    {todos.map((todo) =>
+      <Todo key={todo.id} {...todo} {...rest} />
+    )}
+  </ol>
+);
+
+TodoList.propTypes = {
+  todos: PropTypes.array
+};
 
 const getVisibleTodos = (todos, filter) => {
+  console.log(filter);
   switch (filter) {
     case SHOW_ALL:
       return todos;
@@ -17,18 +31,20 @@ const getVisibleTodos = (todos, filter) => {
       return todos.filter(t => t.completed);
     case SHOW_ACTIVE:
       return todos.filter(t => !t.completed);
+    default:
+      return todos;
   }
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+    todos: getVisibleTodos(state.todos, ownProps.filter)
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTodoClick: (id) => {
+    onToggle: (id) => {
       dispatch(toggleTodo(id));
     }
   };

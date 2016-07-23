@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const Link = ({ active, children, onClick }) => {
   if (active) {
-    return <span>{children}</span>
+    return <span>{children}</span>;
   }
 
   let handeSubmit = (e) => {
@@ -14,8 +14,8 @@ const Link = ({ active, children, onClick }) => {
     <a href="#" onClick={handeSubmit} >
       {children}
     </a>
-  )
-}
+  );
+};
 
 Link.propTypes = {
   active: PropTypes.bool.isRequired,

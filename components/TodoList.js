@@ -2,25 +2,16 @@ import React, { PropTypes } from 'react';
 
 import Todo from './Todo';
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, ...rest }) => (
   <ol className="order-list">
     {todos.map(todo =>
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => onTodoClick(todo.id)}
-      />
+      <Todo key={todo.id} {...todo} {...rest}/>
     )}
   </ol>
 );
 
 TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    completed: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired
-  }).isRequired).isRequired,
-  onTodoClick: PropTypes.func.isRequired
+  todos: PropTypes.array
 };
 
 export default TodoList;

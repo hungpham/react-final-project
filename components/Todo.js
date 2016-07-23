@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const Todo = ({ onClick, completed, text }) => (
+const Todo = ({ id, onToggle, completed, text }) => (
   <li
-    onClick={onClick}
+    onClick={onToggle.bind(null, id)}
     className={completed ? 'is-completed' : ''}
   >
     {text}
@@ -10,9 +10,10 @@ const Todo = ({ onClick, completed, text }) => (
 );
 
 Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+  id: PropTypes.string,
+  onToggle: PropTypes.func,
+  completed: PropTypes.bool,
+  text: PropTypes.string
 };
 
 export default Todo;

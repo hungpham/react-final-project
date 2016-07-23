@@ -12,7 +12,7 @@ import routes from './modules/routes';
 
 let store = createStore(todoApp);
 
-let next = store.dispatch;
+const next = store.dispatch;
 store.dispatch = function dispatchAndLog(action) {
   console.group();
   console.info('logger');
@@ -20,17 +20,17 @@ store.dispatch = function dispatchAndLog(action) {
   console.log(store.getState());
   console.log('current action:', action.type);
   console.log(action);
-  let result = next(action);
+  const result = next(action);
   console.log('next state:');
   console.log(store.getState());
   localStorage.setItem(LOCAL_STATE_KEY, JSON.stringify(store.getState()));
   console.groupEnd();
   return result;
-}
+};
 
 render(
   <Provider store={store}>
-    <Router routes={routes}  history={browserHistory}/>
+    <Router routes={routes} history={browserHistory} />
   </Provider>,
   document.getElementById('root')
 );
